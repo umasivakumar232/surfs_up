@@ -69,11 +69,44 @@ We run the summary statistics on our dataframe and get the below  result
 Seeing the summary stats for June and Dec I let out a big sigh of relief. W Avy will be happy to see this. 
  
  *  Its surfing times in Oahu for most of the year with average temperatures ranging from 71-75 degrees
- *  The low std deviations indicate that the variations in temp through the months is not too high 
+ *  The low std deviations indicate that the variations in temp for the two the months is not too high 
  *  One can expect a few chilly days not suitable to Surfing or Ice Cream in December, but hopefully not too many
+ *  But if we wanted to split hairs then the below are the key differences between the June and Dec statistical summaries
+ *  The average temps in June are 74.9 and in Dec are 71
+ *  Dec has a slightly higher std deviation at 3.75 when compared to the June std deviation of 3.25
+ *  The lowest temperatue in Dec is 56 while the lowest temp in June is 64
+ *  The highest temps in Dec are 83 while the highest temps in June is 85 
 
 ## Additional Analysis 
 
+Let me also check if rain will play a spoil sport in our plans. Let me give W.Avy and friends an analysis on the precipitation before they ask for it. Precipitation analysis for the same periods tells us the following 
+
+First I extract precipitation data from the measurement table and filter it by month for June and Dec using the following query
+
+      * june_prcp = session.query(Measurement.date, Measurement.prcp).filter(extract('month', Measurement.date) == 6)
+      
+      * dec_prcp = session.query(Measurement.date, Measurement.prcp).filter(extract('month', Measurement.date) == 12)
+      
+Next I create a list of precipitations for the month of June and Dec using 
+
+      * june_prcp_list = [record[1] for record in june_prcp]
+
+      * dec_prcp_list = [record[1] for record in dec_prcp]
+      
+ Created a dataframe for the same  using 
+       
+       * june_prcp = pd.DataFrame(june_prcp_list, columns=['June Prcp'])
+      
+       * dec_prcp = pd.DataFrame(dec_prcp_list, columns=['Dec Prcp'])
+
+Got the summary statistics for June and Dec
+
+<img width="153" alt="June_prcp" src="https://user-images.githubusercontent.com/85518330/129462180-437297cb-d42e-4d4e-950c-90864b60f7f0.png">
+
+
+<img width="123" alt="Dec_prcp" src="https://user-images.githubusercontent.com/85518330/129462184-3716bbd9-a87c-43e9-b058-b68250656ea9.png">
+
+### Key Findings 
 
 
 
