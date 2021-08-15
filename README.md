@@ -6,7 +6,7 @@
 
 I love Oahu, was there last year for a holiday and want to go back and settle there. What will I do there, you ask? Set up a Surf and Ice Cream shop ofcourse. I think the weather is perfect all year around and toursists and locals alike will Surf first and then cool down from the activity with their favorite Ice Cream flavor. I have a little bit of money but will need some investor to believe in my idea too and help me with some additional funding. 
 
-W.Avy my potential investor is excited about my idea and believes it can work not only just in Oahu but also in some surrounding cities as well. A Surf and Ice Cream chain...  I can't believe my luck. To be double sure, W.Avy has asked me to do a check on the weather conditions in Oahu through the year just to confirm that its mostly conducive to Surfing and Ice Cream eating. That's easy I say, after all I have been learning data analysis and visualization and honning my data skills precisely for an occasion like this. 
+W.Avy my potential investor is excited about my idea and believes it can work not only just in Oahu but also in some surrounding cities as well. A Surf and Ice Cream chain...  I can't believe my luck. W.Avy has asked me to do a check on the weather conditions in Oahu through the year just to confirm that its mostly conducive to Surfing and Ice Cream eating. That's easy I say, after all I have been learning data analysis and visualization and honning my data skills precisely for an occasion like this. 
 
 ## Task Planning
 
@@ -17,16 +17,16 @@ W Avy and his friends my potential investors are not too tech savvy, they are lu
 
 I don't want to confuse W Avy with too much analysis and data, just enough to give him comfort that our choice of Oahu is perfect weather wise for us to set up our Surf and Ice Cream Shop. What should I call my shop I drift off to think. That can wait I quickly decide. I remind myself not to count my chickens before they hatch.
 
-First I decide to pick two points in the year 6 months apart to do my analysis. June the beginning of summer and December the middle of the winter seem like perfect choices for my analysis. Afterall they also coincide with the peak tourist seasons for Oahu. 
+First I decide to pick two points in the year 6 months apart to do my analysis. June the beginning of summer and December seem like perfect choices for my analysis. Afterall they also coincide with the peak tourist seasons for Oahu. 
 
 The data I pick spans a period of 7 years from 2010 to 2017. A large enough period to take care of any sudden or unexpected abberations in weather. The data set has two primary tables the *Measurement table* and *Stations table* 
 
-We will use the Measurement table for our analysis as it has the temerature observasions and date details that we want.  Next we import certain libraries that we need to run our analysis. We import Pandas as pd and extract from SQLAlchemy. 
+We will use the Measurement table for our analysis as it has the temerature observasions and date details that we want.  Next we import certain libraries that we need to run our analysis. We import Pandas as pd and extract from SQLAlchemy amongst a few others 
 
 ### June Temperatures
 
 
-We query the SQLite database to get the date and temperature observations, since we need only the results for june we extract the results for the month of june which is the 6th month using the below 
+We query the SQLite database to get the date and temperature observations, since we need only the results for June we extract the results for the month of June which is the 6th month using the below 
 
     * june_temps = session.query(Measurement.date, Measurement.tobs).filter(extract('month', Measurement.date) == 6)
 
@@ -108,8 +108,12 @@ Got the summary statistics for June and Dec
 
 ### Key Findings 
 
+* The precipitation analysis revels that it rains a lot more in Dec as compared to June in Oahu with average prcp of .23 in Dec as compared to .14 in June 
+* The maximum prcp in Dec is 6.4 while in June it is 4.4
+* Our descriptive statistics tell us that rain is not going to play spoil sport too often which is quite a relief 
 
 
+# How does the name 'SURF SHACK' sound?
 
 
 
